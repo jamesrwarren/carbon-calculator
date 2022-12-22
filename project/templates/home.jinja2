@@ -1,0 +1,12 @@
+{% extends 'layout.jinja2' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+        <div class="home">
+            <h1 class="title">Welcome to Jimmy's Page</h1>
+            <p class="body">Please login or sign up and have a browse around</p>
+        </div>
+{% endblock %}}    

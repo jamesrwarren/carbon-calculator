@@ -1,0 +1,35 @@
+{% extends 'layout.jinja2' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<br><br>
+    <div class="user">
+        <table>
+            <tr>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user[2] }}</td>
+                <td>{{ user[5] }}</td>
+                <td>
+                    <form action="/user/update/{{ user[0] }}/" method="get">
+                        <button>UPDATE</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/user/delete/{{ user[0] }}/" method="post">
+                        <button>DELETE</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}}

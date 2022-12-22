@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+    postgres-db:
+        container_name: pgdb
+        image: postgres:13
+        restart: always
+        ports:
+            - 5432:5432
+        networks:
+            - backend
+        volumes:
+            - ./project/postgres:/appdb
+        environment:
+            POSTGRES_USER: db_user
+            POSTGRES_PASSWORD: "password123"
+            POSTGRES_DB: messages
+            PGDATA: /appdb
+    application:
+        container_name: app
+        build:
+            context: .
+            args:
+                options: --reload
+        volumes:
+            - .:/opt/application/flask
+        restart: always
+        ports:
+            - 5088:5000
+        networks:
+            - backend
+        depends_on:
+            - postgres-db
+
+networks:
+    backend:
+      driver: "bridge"
+      enable_ipv6: false
+

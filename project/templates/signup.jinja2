@@ -1,0 +1,20 @@
+{% extends 'layout.jinja2' %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+{% endblock %}
+
+{% block content %}
+<form class="form" action="/signup" method="post">
+    <label>User Name: <br><input type="text" name="user_name" id="user_name" maxlength="50" required></label>
+    <label>First Name: <br><input type="text" name="first_name" id="first_name" maxlength="50" required></label>
+    <label>Surname: <br><input type="text" name="surname" id="surname" maxlength="50" required></label>
+    <label>Email: <br><input type="text" name="email" id="email" maxlength="50" required></label>
+    <label>Password: <br><input type="text" name="password" id="password" maxlength="50" required></label>
+    <label>Role: <br><input type="text" name="role" id="role" maxlength="50" required></label>
+    <button>CREATE</button>
+    {% if warning %}
+    <p class="warning center">{{warning}}</p>
+    {% endif %}
+</form>
+{% endblock %}

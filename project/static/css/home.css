@@ -1,0 +1,15 @@
+.message_page_position{
+    /* position: fixed; */
+    bottom: 20px;
+    /* right: 45%; */
+}
+
+.message_page{
+    padding: 5px 10px;
+    background-color: #a33;
+}
+
+.user{
+    text-align: center;
+    margin: 100px 100;
+}
